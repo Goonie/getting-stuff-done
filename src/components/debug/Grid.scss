@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "css-utilities/variables";
 
 $grid-baseline-color: hsla(0, 100%, 50%, 0.4);
@@ -27,8 +29,8 @@ $grid-label-color: hsla(0, 100%, 50%, 0.6);
     color: $grid-label-color;
     background-color: $grid-column-color;
     background-clip: content-box;
-    border-left: $grid-gutter / 2 solid $grid-gutter-color;
-    border-right: $grid-gutter / 2 solid $grid-gutter-color;
+    border-left: math.div($grid-gutter, 2) solid $grid-gutter-color;
+    border-right: math.div($grid-gutter, 2) solid $grid-gutter-color;
     font-size: 0.6rem;
     line-height: $grid-baseline * 4;
     text-align: center;
