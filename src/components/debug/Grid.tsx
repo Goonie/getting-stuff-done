@@ -1,5 +1,3 @@
-// import "./Grid.scss";
-
 interface GridProps {
   visible?: boolean;
 }
