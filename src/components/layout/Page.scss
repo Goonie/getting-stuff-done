@@ -1,0 +1,8 @@
+@import "css-utilities/variables";
+
+.Page {
+  margin: 0 auto;
+  padding-top: $grid-baseline * 5;
+  padding-bottom: $grid-baseline * 5;
+  max-width: $page-maximum-width;
+}

@@ -1,0 +1,55 @@
+@import "css-utilities/variables";
+
+$grid-baseline-color: hsla(0, 100%, 50%, 0.4);
+
+$grid-column-color: hsla(0, 100%, 50%, 0.2);
+$grid-gutter-color: hsla(200, 100%, 50%, 0.2);
+$grid-margin-color: hsla(120, 100%, 50%, 0.2);
+
+$grid-label-color: hsla(0, 100%, 50%, 0.6);
+
+.Grid {
+  pointer-events: none;
+  box-sizing: content-box;
+  position: fixed;
+  left: 50%;
+  top: 0;
+  display: flex;
+  width: calc(100vw - #{$grid-margin} * 2);
+  max-width: $page-maximum-width;
+  height: 100vh;
+  border-left: $grid-margin solid $grid-margin-color;
+  border-right: $grid-margin solid $grid-margin-color;
+  transform: translateX(-50%);
+
+  .column {
+    width: 100%;
+    color: $grid-label-color;
+    background-color: $grid-column-color;
+    background-clip: content-box;
+    border-left: $grid-gutter / 2 solid $grid-gutter-color;
+    border-right: $grid-gutter / 2 solid $grid-gutter-color;
+    font-size: 0.6rem;
+    line-height: $grid-baseline * 4;
+    text-align: center;
+
+    &:first-child {
+      border-left: none;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+
+body {
+  min-height: 100vh;
+  background-image: repeating-linear-gradient(
+    180deg,
+    transparent 0,
+    transparent calc(#{$grid-baseline} - 1px),
+    $grid-baseline-color calc(#{$grid-baseline} - 1px),
+    $grid-baseline-color $grid-baseline
+  );
+}
