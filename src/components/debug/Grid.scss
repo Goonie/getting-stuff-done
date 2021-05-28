@@ -45,7 +45,7 @@ $grid-label-color: hsla(0, 100%, 50%, 0.6);
   }
 }
 
-body {
+body.grid {
   min-height: 100vh;
   background-image: repeating-linear-gradient(
     180deg,

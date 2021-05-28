@@ -6,10 +6,14 @@ import Page from "components/layout/Page";
 
 import "App.scss";
 
+import { useAltKeypress } from "react-utilities/keyboard";
+
 function App() {
+  const gridVisible = useAltKeypress("KeyG");
+
   return (
     <Fragment>
-      <Grid visible={true} />
+      <Grid visible={gridVisible} />
 
       <Page>
         <h1>Getting Stuff Done</h1>

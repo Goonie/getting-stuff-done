@@ -1,11 +1,17 @@
+import("./Grid.scss");
+
 interface GridProps {
   visible?: boolean;
 }
 
 function Grid({ visible = true }: GridProps) {
-  if (!visible) return null;
+  visible
+    ? document.body.classList.add("grid")
+    : document.body.classList.remove("grid");
 
-  import("./Grid.scss");
+  if (!visible) {
+    return null;
+  }
 
   return (
     <div className="Grid">
