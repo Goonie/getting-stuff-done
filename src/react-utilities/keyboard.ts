@@ -13,7 +13,7 @@ function useAltKeypress(code: string) {
       }
 
       function keyUp(event: KeyboardEvent) {
-        if (event.altKey && event.code === code) {
+        if (event.code === code) {
           event.preventDefault();
           setKeyPressed(false);
         }
