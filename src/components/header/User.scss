@@ -2,4 +2,22 @@
 
 .User {
   height: $grid-baseline * 5;
+
+  &.loading {
+    width: $grid-baseline * 5;
+    height: $grid-baseline * 5;
+    color: hsl(220, 5%, 80%);
+    line-height: $grid-baseline * 5;
+    text-align: center;
+    animation: avatar-rotate 1s linear infinite;
+  }
+}
+
+@keyframes avatar-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
