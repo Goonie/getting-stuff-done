@@ -19,7 +19,7 @@ function App() {
       <Header />
 
       <Page>
-        <h1>Getting Stuff Done</h1>
+        <h1>Lists</h1>
       </Page>
     </Fragment>
   );
