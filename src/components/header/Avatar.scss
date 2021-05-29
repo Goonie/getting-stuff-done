@@ -1,0 +1,16 @@
+@import "css-utilities/variables";
+
+.Avatar {
+  display: block;
+  width: $grid-baseline * 5;
+  height: $grid-baseline * 5;
+  border-radius: 50%;
+  line-height: $grid-baseline * 5;
+  text-align: center;
+
+  &.letter,
+  &.unknown {
+    color: hsl(220, 5%, 90%);
+    background-color: hsl(220, 10%, 35%);
+  }
+}

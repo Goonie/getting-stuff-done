@@ -10,6 +10,7 @@
 body {
   padding-left: $grid-mobile-margin;
   padding-right: $grid-mobile-margin;
+  border-top: $grid-baseline solid hsl(220, 10%, 35%);
 
   @include tablet-and-up {
     padding-left: $grid-tablet-margin;
@@ -27,7 +28,8 @@ html {
 
 body,
 h1,
-h2 {
+h2,
+button {
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   line-height: $grid-baseline * 4;
@@ -60,4 +62,14 @@ ul {
 
 li {
   margin-bottom: $grid-baseline;
+}
+
+button {
+  cursor: pointer;
+  padding: 0 $grid-baseline;
+  color: hsl(220, 5%, 90%);
+  background-color: hsl(220, 10%, 35%);
+  border: none;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
 }
