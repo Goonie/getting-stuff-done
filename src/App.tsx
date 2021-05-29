@@ -2,11 +2,12 @@ import { Fragment } from "react";
 
 import Grid from "components/debug/Grid";
 
+import Header from "components/layout/Header";
 import Page from "components/layout/Page";
 
-import "App.scss";
-
 import { useAltKeypress } from "react-utilities/keyboard";
+
+import "App.scss";
 
 function App() {
   const gridVisible = useAltKeypress("KeyG");
@@ -14,6 +15,8 @@ function App() {
   return (
     <Fragment>
       <Grid visible={gridVisible} />
+
+      <Header />
 
       <Page>
         <h1>Getting Stuff Done</h1>

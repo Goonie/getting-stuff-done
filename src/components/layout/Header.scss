@@ -1,0 +1,29 @@
+@use "sass:math";
+
+@import "css-utilities/variables";
+@import "css-utilities/breakpoints";
+
+.Header {
+  height: $grid-baseline * 8;
+  margin-left: -$grid-mobile-margin;
+  margin-right: -$grid-mobile-margin;
+  padding: $grid-baseline * 2 $grid-mobile-margin;
+  border-bottom: 1px solid #ddd;
+
+  @include tablet-and-up {
+    margin-left: -$grid-tablet-margin;
+    margin-right: -$grid-tablet-margin;
+    padding-left: calc(
+      (100% - #{$page-maximum-width}) / 2 + #{$grid-tablet-margin}
+    );
+    padding-right: calc(
+      (100% - #{$page-maximum-width}) / 2 + #{$grid-tablet-margin}
+    );
+  }
+
+  h1 {
+    margin-bottom: 0;
+    font-size: 1.5rem;
+    line-height: $grid-baseline * 4;
+  }
+}
