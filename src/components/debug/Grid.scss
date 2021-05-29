@@ -1,6 +1,7 @@
 @use "sass:math";
 
 @import "css-utilities/variables";
+@import "css-utilities/breakpoints";
 
 $grid-baseline-color: hsla(0, 100%, 50%, 0.4);
 
@@ -17,12 +18,17 @@ $grid-label-color: hsla(0, 100%, 50%, 0.6);
   left: 50%;
   top: 0;
   display: flex;
-  width: calc(100vw - #{$grid-margin} * 2);
+  width: calc(100vw - #{$grid-mobile-margin} * 2);
   max-width: $page-maximum-width;
   height: 100vh;
-  border-left: $grid-margin solid $grid-margin-color;
-  border-right: $grid-margin solid $grid-margin-color;
+  border-left: $grid-mobile-margin solid $grid-margin-color;
+  border-right: $grid-mobile-margin solid $grid-margin-color;
   transform: translateX(-50%);
+
+  @include tablet-and-up {
+    border-left-width: $grid-tablet-margin;
+    border-right-width: $grid-tablet-margin;
+  }
 
   .column {
     width: 100%;
@@ -39,8 +45,23 @@ $grid-label-color: hsla(0, 100%, 50%, 0.6);
       border-left: none;
     }
 
+    &:nth-child(2),
     &:last-child {
       border-right: none;
+    }
+
+    &:nth-child(n + 3) {
+      display: none;
+    }
+
+    @include tablet-and-up {
+      &:nth-child(2) {
+        border-right: math.div($grid-gutter, 2) solid $grid-gutter-color;
+      }
+
+      &:nth-child(n + 3) {
+        display: initial;
+      }
     }
   }
 }
@@ -54,4 +75,11 @@ body.grid {
     $grid-baseline-color calc(#{$grid-baseline} - 1px),
     $grid-baseline-color $grid-baseline
   );
+
+  h1,
+  h2,
+  p,
+  li {
+    background-color: hsla(0, 0%, 0%, 0.1);
+  }
 }
