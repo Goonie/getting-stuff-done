@@ -7,6 +7,8 @@ import Grid from "components/debug/Grid";
 
 import Header from "components/layout/Header";
 
+import AuthorizedRoute from "components/router/AuthorizedRoute";
+
 import Dashboard from "pages/Dashboard";
 import NotFound from "pages/NotFound";
 
@@ -23,7 +25,8 @@ function App() {
 
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={Dashboard} />
+          <AuthorizedRoute exact path="/" component={Dashboard} />
+
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
