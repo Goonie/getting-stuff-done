@@ -1,11 +1,14 @@
 import { Fragment } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+import { useAltKeypress } from "react-utilities/keyboard";
 
 import Grid from "components/debug/Grid";
 
 import Header from "components/layout/Header";
-import Page from "components/layout/Page";
 
-import { useAltKeypress } from "react-utilities/keyboard";
+import Dashboard from "pages/Dashboard";
+import NotFound from "pages/NotFound";
 
 import "App.scss";
 
@@ -18,9 +21,12 @@ function App() {
 
       <Header />
 
-      <Page>
-        <h1>Lists</h1>
-      </Page>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Dashboard} />
+          <Route component={NotFound} />
+        </Switch>
+      </BrowserRouter>
     </Fragment>
   );
 }
