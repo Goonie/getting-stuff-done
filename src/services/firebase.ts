@@ -17,8 +17,6 @@ if (firebase.apps.length === 0) {
   });
 }
 
-const firestore = firebase.firestore();
-
 function useFirebaseUser() {
   const [user, setUser] = useState<firebase.User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -42,4 +40,35 @@ function useFirebaseUser() {
   return { user, isLoading, signIn, signOut };
 }
 
-export { useFirebaseUser, firestore };
+const firestore = firebase.firestore();
+
+function useCollection<T extends any>(name: string) {
+  const [data, setData] = useState<T[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const { user } = useFirebaseUser();
+
+  useEffect(
+    function () {
+      async function getCollection(uid: string, name: string) {
+        const query = await firestore.collection(`/users/${uid}/${name}`).get();
+
+        const docs = query.docs.map(
+          (doc) => ({ id: doc.id, ...doc.data() } as T)
+        );
+
+        setData(docs);
+        setIsLoading(false);
+      }
+
+      if (user) {
+        getCollection(user.uid, name);
+      }
+    },
+    [user, name]
+  );
+
+  return { data, isLoading };
+}
+
+export { useFirebaseUser, useCollection };
