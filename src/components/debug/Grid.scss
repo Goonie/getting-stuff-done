@@ -15,6 +15,7 @@ $grid-label-color: hsla(0, 100%, 50%, 0.6);
   pointer-events: none;
   box-sizing: content-box;
   position: fixed;
+  z-index: 9999;
   left: 50%;
   top: 0;
   display: flex;
@@ -70,6 +71,7 @@ body.grid::before {
   content: "";
   pointer-events: none;
   position: absolute;
+  z-index: 9999;
   left: 0;
   top: 0;
   width: 100%;
@@ -87,7 +89,8 @@ body.grid {
   h1,
   h2,
   p,
-  li {
+  li,
+  label {
     background-color: hsla(0, 0%, 0%, 0.1);
   }
 }

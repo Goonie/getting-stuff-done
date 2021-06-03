@@ -1,0 +1,26 @@
+@import "css-utilities/variables";
+
+.Form {
+  position: relative;
+  width: 50%;
+  padding: $grid-baseline * 3;
+  padding-left: $grid-baseline * 4;
+  background-color: hsl(220, 10%, 95%);
+  border-top-left-radius: 0.24rem;
+  border-bottom-left-radius: 0.24rem;
+  border-top-right-radius: 0.2rem;
+  border-bottom-right-radius: 0.2rem;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: $grid-baseline;
+    height: 100%;
+    background-color: hsl(220, 10%, 35%);
+    border-top-left-radius: 0.2rem;
+    border-bottom-left-radius: 0.2rem;
+  }
+}

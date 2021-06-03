@@ -1,0 +1,10 @@
+@import "css-utilities/variables";
+
+.FormButtons {
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    margin-left: $grid-baseline * 2;
+  }
+}
