@@ -42,8 +42,12 @@ function useFirebaseUser() {
 
 const firestore = firebase.firestore();
 
+type FirestoreRecord<T> = T & {
+  id: string;
+};
+
 function useCollection<T extends any>(name: string) {
-  const [data, setData] = useState<T[]>([]);
+  const [data, setData] = useState<FirestoreRecord<T>[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const { user } = useFirebaseUser();
@@ -54,7 +58,7 @@ function useCollection<T extends any>(name: string) {
         const query = await firestore.collection(`/users/${uid}/${name}`).get();
 
         const docs = query.docs.map(
-          (doc) => ({ id: doc.id, ...doc.data() } as T)
+          (doc) => ({ id: doc.id, ...doc.data() } as FirestoreRecord<T>)
         );
 
         setData(docs);
